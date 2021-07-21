@@ -4,7 +4,7 @@ import styles from "./Checkout.module.css";
 const isEmpty = (value) => value.trim() === "";
 const isNotSixChars = (value) => value.trim().split(" ").join("").length !== 6;
 
-const Checkout = ({ onCancel }) => {
+const Checkout = ({ onCancel, onConfirm }) => {
   const [formInputsValidity, setFormInputsValidity] = useState({
     name: true,
     street: true,
@@ -45,6 +45,13 @@ const Checkout = ({ onCancel }) => {
     if (!formIsValid) {
       return;
     }
+
+    onConfirm({
+      name: enteredName,
+      street: enteredStreet,
+      city: enteredCity,
+      postalCode: enteredPostal,
+    });
   };
 
   return (
