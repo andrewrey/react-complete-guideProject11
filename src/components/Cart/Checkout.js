@@ -5,7 +5,7 @@ const Checkout = ({ onCancel }) => {
     event.preventDefault();
   };
   return (
-    <form onSubmit={confirmHandler}>
+    <form className={styles.form} onSubmit={confirmHandler}>
       <div className={styles.control}>
         <label htmlFor="name">Your name</label>
         <input type="text" id="name" />
@@ -22,10 +22,12 @@ const Checkout = ({ onCancel }) => {
         <label htmlFor="city">City</label>
         <input type="text" id="city" />
       </div>
-      <button type="button" onClick={onCancel}>
-        Cancel
-      </button>
-      <button type="submit">Confirm</button>
+      <div className={styles.actions}>
+        <button type="button" onClick={onCancel}>
+          Cancel
+        </button>
+        <button type="submit">Confirm</button>
+      </div>
     </form>
   );
 };
